@@ -1,0 +1,26 @@
+09:05:59.032 | Info | '/Service/NewServiceRequest' | 
+09:06:05.245 | Info | ({}) | 
+09:07:50.534 | Info | '/Service/NewServiceRequest' | 
+09:07:50.541 | Info | ({}) | 
+09:09:39.805 | Info | '/Service/NewServiceRequest' | 
+09:09:40.231 | Info | ({}) | 
+09:10:06.900 | Info | '/Service/NewServiceRequest' | 
+09:10:06.904 | Info | ({}) | 
+09:15:27.099 | Info | '/agent/NewAgentRequest' | 
+09:15:29.466 | Info | ({'errorInfo':({'code':'auth/phone-number-already-exists','message':'The user with the provided phone number already exists.'}),'codePrefix':'auth'}) | 
+09:17:56.280 | Info | '/Service/NewServiceRequest' | 
+09:17:56.628 | Info | ({}) | 
+09:19:37.267 | Info | '/agent/NewAgentRequest' | 
+09:19:40.435 | Info | ({'message':'connect ECONNREFUSED 127.0.0.1:3306','code':'ECONNREFUSED','errno':-4078,'sqlState':undefined,'sqlMessage':undefined}) | 
+09:21:52.641 | Info | '/Service/NewServiceRequest' | 
+09:21:53.053 | Info | ({}) | 
+09:23:35.992 | Info | '/Service/NewServiceRequest' | 
+09:23:36.069 | Info | ({}) | 
+09:23:55.129 | Info | '/Service/NewServiceRequest' | 
+09:26:54.592 | Info | '/Service/NewServiceRequest' | 
+09:34:42.067 | Info | '/Service/CancelServiceRequest' | 
+09:42:46.401 | Info | '/Service/AcceptServiceRequest' | 
+09:43:07.322 | Info | '/Service/CancelServiceRequest' | 
+09:46:17.095 | Info | '/Service/RejectServiceRequest' | 
+10:07:15.225 | Info | '/Service/ServiceCompletedAgent' | 
+10:07:24.735 | Info | '/Service/ServiceCompletedCustomer' | 

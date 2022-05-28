@@ -1,0 +1,4 @@
+14:23:30.891 | Info | '/api/user/login' | 
+14:23:31.935 | Info | ({'message':'Unknown database \'hunarmand\'','code':'ER_BAD_DB_ERROR','errno':1049,'sqlState':'42000','sqlMessage':'Unknown database \'hunarmand\''}) | 
+14:25:00.372 | Info | '/api/user/login' | 
+14:25:09.043 | Info | '/api/user/login' | 

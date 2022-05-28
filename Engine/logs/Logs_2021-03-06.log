@@ -1,0 +1,83 @@
+01:08:21.743 | Info | '/EnhancePushNotification' | 
+01:08:21.753 | Info | ({'code':'MODULE_NOT_FOUND','requireStack':['D:\\backendWorkspace\\service-app-backend\\app.js','D:\\backendWorkspace\\service-app-backend\\bin\\www']}) | 
+01:08:38.151 | Info | '/EnhancePushNotification' | 
+01:09:46.380 | Info | '/EnhancePushNotification' | 
+01:10:54.230 | Info | '/EnhancePushNotification' | 
+01:11:37.049 | Info | '/EnhancePushNotification' | 
+01:12:17.916 | Info | '/EnhancePushNotification' | 
+01:12:18.030 | Info | ({}) | 
+01:12:31.891 | Info | '/EnhancePushNotification' | 
+01:12:31.973 | Info | ({}) | 
+01:12:50.271 | Info | '/EnhancePushNotification' | 
+01:13:03.269 | Info | ({}) | 
+01:13:03.276 | Info | '/EnhancePushNotification' | 
+01:13:03.289 | Info | ({}) | 
+01:13:12.848 | Info | '/EnhancePushNotification' | 
+01:13:29.917 | Info | '/EnhancePushNotification' | 
+01:13:55.122 | Info | '/EnhancePushNotification' | 
+01:18:38.917 | Info | '/EnhancePushNotification' | 
+01:19:03.316 | Info | '/EnhancePushNotification' | 
+01:20:08.443 | Info | '/EnhancePushNotification' | 
+01:21:12.183 | Info | '/EnhancePushNotification' | 
+01:23:33.289 | Info | '/EnhancePushNotification' | 
+01:24:44.812 | Info | '/EnhancePushNotification' | 
+01:24:54.228 | Info | '/EnhancePushNotification' | 
+01:27:23.132 | Info | '/EnhancePushNotification' | 
+01:27:23.225 | Info | ({'errorInfo':({'code':'messaging/invalid-argument','message':'messages must be a non-empty array'}),'codePrefix':'messaging'}) | 
+01:27:53.620 | Info | '/EnhancePushNotification' | 
+01:27:53.704 | Info | ({'errorInfo':({'code':'messaging/invalid-argument','message':'messages must be a non-empty array'}),'codePrefix':'messaging'}) | 
+01:30:02.753 | Info | '/EnhancePushNotification' | 
+01:30:07.296 | Info | '/EnhancePushNotification' | 
+01:32:10.332 | Info | '/EnhancePushNotification' | 
+01:34:20.019 | Info | '/EnhancePushNotification' | 
+01:34:37.722 | Info | '/EnhancePushNotification' | 
+01:35:44.855 | Info | '/EnhancePushNotification' | 
+01:38:43.945 | Info | '/EnhancePushNotification' | 
+01:38:44.029 | Info | ({'errorInfo':({'code':'messaging/invalid-argument','message':'messages must be a non-empty array'}),'codePrefix':'messaging'}) | 
+01:39:00.651 | Info | '/EnhancePushNotification' | 
+01:39:00.757 | Info | ({'errorInfo':({'code':'messaging/invalid-argument','message':'messages must be a non-empty array'}),'codePrefix':'messaging'}) | 
+01:40:09.578 | Info | '/EnhancePushNotification' | 
+01:40:19.101 | Info | '/EnhancePushNotification' | 
+01:42:23.365 | Info | '/EnhancePushNotification' | 
+01:42:23.450 | Info | ({'errorInfo':({'code':'messaging/invalid-argument','message':'messages must be a non-empty array'}),'codePrefix':'messaging'}) | 
+01:43:20.091 | Info | '/EnhancePushNotification' | 
+01:43:20.165 | Info | ({'errorInfo':({'code':'messaging/invalid-argument','message':'tokens must be a non-empty array'}),'codePrefix':'messaging'}) | 
+01:43:46.991 | Info | '/EnhancePushNotification' | 
+01:43:47.084 | Info | ({'errorInfo':({'code':'messaging/invalid-argument','message':'tokens must be a non-empty array'}),'codePrefix':'messaging'}) | 
+01:43:56.117 | Info | '/EnhancePushNotification' | 
+01:45:32.372 | Info | '/EnhancePushNotification' | 
+02:04:47.327 | Info | '/EnhancePushNotification' | 
+02:04:52.923 | Info | '/EnhancePushNotification' | 
+02:05:39.482 | Info | '/EnhancePushNotification' | 
+02:05:46.584 | Info | '/EnhancePushNotification' | 
+02:07:54.397 | Info | '/EnhancePushNotification' | 
+02:08:48.463 | Info | '/EnhancePushNotification' | 
+02:09:01.701 | Info | '/EnhancePushNotification' | 
+02:09:23.887 | Info | '/EnhancePushNotification' | 
+02:21:05.804 | Info | '/EnhancePushNotification' | 
+02:21:40.052 | Info | '/EnhancePushNotification' | 
+02:53:51.302 | Info | '/EnhancePushNotification' | 
+02:54:12.094 | Info | '/EnhancePushNotification' | 
+02:54:33.646 | Info | '/EnhancePushNotification' | 
+02:54:50.194 | Info | '/EnhancePushNotification' | 
+02:56:28.029 | Info | '/EnhancePushNotification' | 
+02:57:28.539 | Info | '/EnhancePushNotification' | 
+02:57:28.547 | Info | ({}) | 
+02:57:36.487 | Info | '/EnhancePushNotification' | 
+02:59:06.365 | Info | '/EnhancePushNotification' | 
+03:01:14.548 | Info | '/EnhancePushNotification' | 
+03:03:31.906 | Info | '/EnhancePushNotification' | 
+03:04:32.037 | Info | '/EnhancePushNotification' | 
+03:04:46.139 | Info | '/EnhancePushNotification' | 
+03:04:59.681 | Info | '/EnhancePushNotification' | 
+03:30:22.491 | Info | '/EnhancePushNotification' | 
+03:33:13.381 | Info | '/EnhancePushNotification' | 
+03:37:44.354 | Info | '/EnhancePushNotification' | 
+03:44:14.048 | Info | '/EnhancePushNotification' | 
+04:13:30.674 | Info | '/EnhancePushNotification' | 
+04:16:29.906 | Info | '/EnhancePushNotification' | 
+05:04:50.487 | Info | '/EnhancePushNotification' | 
+05:05:33.941 | Info | '/EnhancePushNotification' | 
+05:08:09.501 | Info | '/EnhancePushNotification' | 
+05:08:26.171 | Info | '/EnhancePushNotification' | 
+05:10:09.621 | Info | '/EnhancePushNotification' | 

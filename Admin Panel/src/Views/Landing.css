@@ -1,0 +1,20 @@
+.main-container
+{
+    max-height:85%!important;
+    overflow-y: auto!important;
+    overflow-x: auto!important;
+}
+.icon-black
+{
+    color: black;
+}
+.text-black
+{
+    color: black !important;
+}
+.home-card
+{
+    height: 400px;
+    overflow-y: auto!important;
+    overflow-x: auto!important;
+}

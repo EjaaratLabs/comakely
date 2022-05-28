@@ -1,0 +1,10 @@
+14:32:21.867 | Info | '/checkingComments' | 
+14:32:25.222 | Info | ({'message':'You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near \'"insert into userreviews(ORDERID, USERID, REVIEWEEID, COMMENT, RATING) values...\' at line 1','code':'ER_PARSE_ERROR','errno':1064,'sqlState':'42000','sqlMessage':'You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near \'"insert into userreviews(ORDERID, USERID, REVIEWEEID, COMMENT, RATING) values...\' at line 1'}) | 
+14:33:05.799 | Info | '/checkingComments' | 
+14:33:06.191 | Info | ({'message':'You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near \'?,?,?,?,?),\n      [\n        ORDERID,\n        USERID,\n        REVIEWEEID,\n    ...\' at line 1','code':'ER_PARSE_ERROR','errno':1064,'sqlState':'42000','sqlMessage':'You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near \'?,?,?,?,?),\n      [\n        ORDERID,\n        USERID,\n        REVIEWEEID,\n    ...\' at line 1'}) | 
+14:35:35.575 | Info | '/checkingComments' | 
+14:36:54.616 | Info | '/checkingComments' | 
+14:36:55.094 | Info | ({'message':'Unknown column \'gwagwag\' in \'field list\'','code':'ER_BAD_FIELD_ERROR','errno':1054,'sqlState':'42S22','sqlMessage':'Unknown column \'gwagwag\' in \'field list\''}) | 
+14:37:13.992 | Info | '/checkingComments' | 
+14:39:58.042 | Info | '/checkingComments' | 
+14:45:26.467 | Info | '/checkingComments' | 

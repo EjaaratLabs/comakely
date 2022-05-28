@@ -1,0 +1,31 @@
+13:47:28.922 | Info | '/api/client/login' | 
+13:47:49.377 | Info | '/transaction/test2' | 
+13:47:50.353 | Info | ({'errorInfo':({'code':'app/invalid-credential','message':'Service account object must contain a string "private_key" property.'}),'codePrefix':'app'}) | 
+13:47:57.548 | Info | '/transaction/test2' | 
+13:47:57.622 | Info | ({'errorInfo':({'code':'app/invalid-credential','message':'Service account object must contain a string "private_key" property.'}),'codePrefix':'app'}) | 
+13:52:21.136 | Info | '/transaction/test2' | 
+13:52:26.458 | Info | '/transaction/test2' | 
+13:52:27.325 | Info | '/transaction/test2' | 
+14:03:31.334 | Info | '/transaction/test2' | 
+14:03:31.580 | Info | ({'errorInfo':({'code':'messaging/invalid-payload','message':'Exactly one of topic, token or condition is required'}),'codePrefix':'messaging'}) | 
+14:03:48.692 | Info | '/transaction/test2' | 
+14:03:48.909 | Info | ({'errorInfo':({'code':'messaging/invalid-payload','message':'Exactly one of topic, token or condition is required'}),'codePrefix':'messaging'}) | 
+14:04:52.148 | Info | '/transaction/test2' | 
+14:04:52.360 | Info | ({'errorInfo':({'code':'messaging/invalid-payload','message':'Exactly one of topic, token or condition is required'}),'codePrefix':'messaging'}) | 
+14:06:49.865 | Info | '/transaction/test2' | 
+14:06:50.217 | Info | ({'errorInfo':({'code':'messaging/invalid-payload','message':'Exactly one of topic, token or condition is required'}),'codePrefix':'messaging'}) | 
+14:09:11.369 | Info | '/transaction/test2' | 
+14:09:11.716 | Info | ({'errorInfo':({'code':'messaging/invalid-payload','message':'Message must be a non-null object'}),'codePrefix':'messaging'}) | 
+14:09:47.332 | Info | '/transaction/test2' | 
+14:12:14.670 | Info | '/transaction/test2' | 
+14:20:57.768 | Info | '/transaction/test2' | 
+14:20:58.079 | Info | ({}) | 
+14:21:52.580 | Info | '/transaction/test2' | 
+14:21:52.831 | Info | ({}) | 
+14:23:57.067 | Info | '/transaction/test2' | 
+14:23:57.291 | Info | ({}) | 
+14:28:50.053 | Info | '/transaction/test2' | 
+14:37:22.020 | Info | '/transaction/test2' | 
+14:40:42.693 | Info | '/transaction/test2' | 
+15:09:20.382 | Info | '/transaction/test2' | 
+15:09:36.443 | Info | '/transaction/test2' | 

@@ -1,0 +1,112 @@
+.App {
+  text-align: center;
+  background-color: #EEF1F8;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-float infinite 3s ease-in-out;
+  }
+}
+
+.App-header {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+}
+
+.App-link {
+  color: rgb(112, 76, 182);
+}
+
+@keyframes App-logo-float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.custom-sidebar
+{
+  width: 20%;
+  min-height: 100%;
+  background-color: #F1F4FB;
+  border-top-right-radius: 40px;
+  border-color: black;
+  border-width: 2px;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
+}
+
+.custom-sidebar-content
+{
+width: 80%;
+min-height: 100% !important;
+background-color: #F7F7F7;
+}
+
+.custom-sidebar-logo
+{
+  color: #ABD147;
+  font-size: larger;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+}
+.custom-sidebar-menu-item
+{
+  padding: 10px;
+}
+.custom-sidebar-menu-item-inner
+{   
+    padding: 10px 20px;
+    text-align: left;
+}
+.custom-sidebar-menu-item-inner:hover
+{
+  background-color: #2D56C2;
+  color: white !important;
+  border-radius: 8px;
+}
+
+
+.custom-sidebar-menu-item-inner-active
+{
+  background-color: #2D56C2;
+  color: white !important;
+  border-radius: 8px;
+}
+
+.custom-sidebar-menu-item-inner-active a
+{
+  color: white !important;
+}
+
+.custom-sidebar-menu-item-inner:hover a
+{
+  color: white !important;
+}
+
+.custom-sidebar-menu-item-inner a 
+{
+  color: black;
+}
+
+.custom-sidebar-content-nav
+{
+  background-color: #E4E8F1;
+  height: 50px;
+  text-align: right;
+}
