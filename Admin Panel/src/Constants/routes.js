@@ -3,6 +3,7 @@ export const STYLE = '/home/user';
 export const USER = '/home/user';
 export const DASHBOARD='/home/dashboard';
 export const NEWDONATION='/home/newdonation';
+export const BLOG='/home/blog';
 export const NEWDONATIONUKAAZ='/home/newdonation-ucaaz';
 export const LOGIN='/';
 export const CHANNELS='/home/channels';

@@ -18,7 +18,8 @@ import { AdDetails } from './views/AdDetails';
 import { ProfileDetails } from './views/ProfileDetails';
 import { ProfileManagement } from './views/ProfileManagement';
 import { AlliedLanding } from './views/AlliedLanding';
-
+import { Blog } from './views/Blogs';
+import { NewProduct } from './views/NewProduct';
 
 function App() {
 
@@ -41,6 +42,8 @@ function App() {
            <Route path="details/:postId" element={<AdDetails />} />
            <Route path="profile/:vendorId" element={<ProfileDetails  />} />
            <Route path="profile-management" element={<ProfileManagement  />} />
+           <Route path="blog" element={<Blog />} />
+           <Route path="add-product" element={<NewProduct />} />
         </Routes>
       </Router>
       <ToastContainer />

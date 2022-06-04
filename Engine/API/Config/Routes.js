@@ -125,5 +125,12 @@ module.exports = {
     "/user/vendorprofile": {
         controller: "PostVendorProfile",
         allowedMethod: ['POST']
+    },"/blog/list": {
+        controller: "GetBlog",
+        allowedMethod: ['GET']
+    },
+    "/blog/create": {
+        controller: "PostBlog",
+        allowedMethod: ['POST']
     },
 }

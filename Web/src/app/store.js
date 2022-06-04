@@ -9,6 +9,7 @@ import childProfileReducer from '../reducers/ChildProfileSlice';
 import doonorProfileReducer from '../reducers/DonorProfileSlice';
 import AdReducer from '../reducers/AdSlice';
 import VendorReducer from '../reducers/VendorSlice';
+import BlogReducer from '../reducers/BlogSlice';
 
 const persistConfig = {
   key: 'root',
@@ -22,7 +23,7 @@ const reducers = combineReducers({
   childProfile: childProfileReducer,
   donorProfile: doonorProfileReducer,
   adServ:AdReducer,
-  Vendor:VendorReducer
+  blog:BlogReducer
 });
 
 const _persistedReducer = persistReducer(persistConfig, reducers);

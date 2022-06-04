@@ -6,7 +6,7 @@ const axios = require('axios').default;
 export default new class HelperApi {
 
 
-    baseUrL = "http://localhost:3100/";
+    baseUrL =  "https://staging.ejaarat.com/"
     async getApi(url, token, params) {
         
         var queryParams = ""

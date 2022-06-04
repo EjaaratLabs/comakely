@@ -210,7 +210,7 @@ export function ProfileManagement() {
                         validate
                         error="wrong"
                         success="right"
-                        value={userProfileData.info.Name}
+                        value={userProfileData?.info?.Name}
                       /></MDBCol>
                       <MDBCol lg="6" className='p-2'> <MDBInput
                         label="Phone"
@@ -219,7 +219,7 @@ export function ProfileManagement() {
                         validate
                         error="wrong"
                         success="right"
-                        value={userProfileData.info.Phone}
+                        value={userProfileData?.info?.Phone}
                       /></MDBCol>
 
                       <MDBCol className='d-flex justify-content-end mt-5' size='12'><MDBBtn>Update picture</MDBBtn>
@@ -301,9 +301,8 @@ export function ProfileManagement() {
                   </MDBCardHeader>
                   <MDBCardBody className="w-100">
                     <MDBCol className='d-flex justify-content-end mt-5' size='12'>
-                      <MDBBtn onClick={() => {
-                        toggleShow()
-                      }}   >Add New</MDBBtn>
+                      <Link to="/add-product">
+                        <MDBBtn  >Add New</MDBBtn></Link>
                     </MDBCol>
                     <DataTable
                       pagination="true"
@@ -325,14 +324,14 @@ export function ProfileManagement() {
                         <form>
                           <MDBRow>
                             <MDBCol size='12'>
-                              <MDBInput className="mt-3" label="Title" type="text"  style={{ backgroundColor: "#FFFFFF" }}
+                              <MDBInput className="mt-3" label="Title" type="text" style={{ backgroundColor: "#FFFFFF" }}
                                 onChange={(e) => {
                                   setProductTitle(e.target.value)
                                 }}
                               />
                             </MDBCol>
                             <MDBCol size='12'>
-                              <MDBInput className="mt-3" label="Description" type="text"  style={{ backgroundColor: "#FFFFFF" }}
+                              <MDBInput className="mt-3" label="Description" type="text" style={{ backgroundColor: "#FFFFFF" }}
                                 onChange={(e) => {
                                   setProductDesc(e.target.value)
                                 }}

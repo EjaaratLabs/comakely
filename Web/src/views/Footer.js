@@ -97,7 +97,7 @@ export function Footer() {
          <MDBCol size='2'>
            
            <Link  to="#" style={{color:"white"}}> FAQs </Link><br/>
-           <Link  to="#" style={{color:"white"}}> Blog </Link><br/>
+           <Link  to="/blog" style={{color:"white"}}> Blog </Link><br/>
        
          </MDBCol>
         </MDBRow>

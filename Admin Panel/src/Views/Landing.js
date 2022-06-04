@@ -30,6 +30,7 @@ import DonationPurpose from './Configurations/DonationPurpose/DonationPurpose.js
 import Dashboard from './DashBoard/DashBoard.js';
 //import Donations from './DonationManagement/All Donations/Donations.js';
 import Requests from './RequestCenter/Requests/Requests.js';
+import Blog from './Blogs/Blogs.js';
 import UserRequests from './RequestCenter/User Request/index.js'
 import Reports from './Reportings/Reports/Reports.js';
 import CustomReports from './Reportings/CustomReports/CustomReports.js';
@@ -353,6 +354,14 @@ class Landing extends Component {
                                 </MenuItem>
                             </Menu> : ""}
 
+                            <Menu >
+                                <MenuItem
+                                    icon={<MDBIcon icon="plus-circle" />}
+                                >
+                                    <Link to={ROUTES.BLOG}> Blogs</Link>
+                                </MenuItem>
+                            </Menu>
+
                         </SidebarContent>
 
                         <SidebarFooter style={{ textAlign: 'center' }}>
@@ -413,6 +422,9 @@ class Landing extends Component {
                       
                             <Route path={ROUTES.USER}>
                                 <Users />
+                            </Route>
+                            <Route path={ROUTES.BLOG}>
+                                <Blog />
                             </Route>
                             <Route path={ROUTES.CHANNELS}>
                                 <Channels />
