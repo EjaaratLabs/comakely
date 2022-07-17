@@ -58,8 +58,9 @@ import { Navbar } from './Navbar';
 import { Footer } from './Footer';
 import DataTable from 'react-data-table-component';
 import { PostVendorProfileAsync } from '../reducers/VendorSlice';
+import { getVendorOrder, GetVendorOrdersAsync, PostOrderStatusAsync } from '../reducers/OrderSlice';
 
-export function ProfileManagement() {
+export function VendorProfileManagement() {
   const token = useSelector(getToken);
   const userData = useSelector(getUserData);
   const userProfileData = useSelector(getUserProfileData);
@@ -87,11 +88,24 @@ export function ProfileManagement() {
   const [productCategory, setProductCategory] = useState('');
   const [productIsPrimary, setProductIsPrimary] = useState('');
 
+  useEffect(() => {
 
+    dispatch(GetVendorOrdersAsync({ token }))
+  }, [])
+
+  const vendorOrders = useSelector(getVendorOrder);
   const [basicModal, setBasicModal] = useState(false);
+  const [orderModal, setOrderModal] = useState(false);
+  const [orderData, setOrderData] = useState({});
   const toggleShow = () => {
 
     setBasicModal(!basicModal)
+  };
+
+  const toggleOrderShow = (data) => {
+
+    setOrderModal(!orderModal)
+    setOrderData(data)
   };
 
 
@@ -108,22 +122,44 @@ export function ProfileManagement() {
     // setUserName("")
   }
 
-  const columns = [
+  const ordercolumns = [
     {
-      name: 'Product Id',
-      selector: row => row.prodId,
+      name: 'Order id',
+      selector: row => row.id,
     },
     {
       name: 'Title',
       selector: row => row.title,
     },
     {
-      name: 'Is Primary',
-      selector: row => row.status,
+      name: 'Quantity',
+      selector: row => row.quantity,
+    },
+    {
+      name: 'Status',
+      selector: row => row.orderStatus,
     },
     {
       name: 'Actions',
-      selector: row => <Link to={"/home/donors/details/" + row.regid}><MDBBtn color='warning' size='sm'>Details</MDBBtn> </Link>,
+      selector: row => <MDBBtn color='success' size='sm' className='mx-2' onClick={() => [toggleOrderShow(row)]}>View</MDBBtn>,
+    },
+  ];
+  const prodcolumns = [
+    {
+      name: 'Product id',
+      selector: row => row.id,
+    },
+    {
+      name: 'Title',
+      selector: row => row.title,
+    },
+    {
+      name: 'Primary',
+      selector: row => row.isPrimary == '1' ? "Yes" : "No",
+    },
+    {
+      name: 'Actions',
+      selector: row => <MDBBtn color='success' size='sm' className='mx-2' onClick={() => [toggleOrderShow(row)]}>View</MDBBtn>,
     },
   ];
   var data = [{ prodId: 1, title: "Soda", status: "Yes" }]
@@ -283,7 +319,6 @@ export function ProfileManagement() {
                             "orgName": vendorName,
                             "orgPhone": vendorPhone,
                             "orgAddress": vendorOffice,
-
                           },
                           "token": token,
 
@@ -293,26 +328,27 @@ export function ProfileManagement() {
                   </MDBCardBody>
                 </MDBCard>
               </MDBCol></MDBTabsPane>
-              <MDBTabsPane show={verticalActive === 'tab2'}>   <MDBCol size='12' className='d-flex  align-items-stretch'>
-                <MDBCard className="p-2 mb-3  w-100">
+              <MDBTabsPane show={verticalActive === 'tab2'}>
+                <MDBCol size='12' className='d-flex  align-items-stretch'>
+                  <MDBCard className="p-2 mb-3  w-100">
 
-                  <MDBCardHeader>
-                    Products Management
-                  </MDBCardHeader>
-                  <MDBCardBody className="w-100">
-                    <MDBCol className='d-flex justify-content-end mt-5' size='12'>
-                      <Link to="/add-product">
-                        <MDBBtn  >Add New</MDBBtn></Link>
-                    </MDBCol>
-                    <DataTable
-                      pagination="true"
-                      columns={columns}
-                      data={userProfileData.products ? userProfileData.products : []}
+                    <MDBCardHeader>
+                      Products Management
+                    </MDBCardHeader>
+                    <MDBCardBody className="w-100">
+                      <MDBCol className='d-flex justify-content-end mt-5' size='12'>
+                        <Link to="/add-product">
+                          <MDBBtn  >Add New</MDBBtn></Link>
+                      </MDBCol>
+                      <DataTable
+                        pagination="true"
+                        columns={prodcolumns}
+                        data={userProfileData.products ? userProfileData.products : []}
 
-                    />
-                  </MDBCardBody>
-                </MDBCard>
-              </MDBCol>
+                      />
+                    </MDBCardBody>
+                  </MDBCard>
+                </MDBCol>
                 <MDBModal show={basicModal} setShow={setBasicModal} tabIndex='-1' backdrop={false} staticBackdrop={true} >
                   <MDBModalDialog>
                     <MDBModalContent>
@@ -384,11 +420,111 @@ export function ProfileManagement() {
                   </MDBModalDialog>
                 </MDBModal>
               </MDBTabsPane>
-              <MDBTabsPane show={verticalActive === 'tab3'}>Orders</MDBTabsPane>
+              <MDBTabsPane show={verticalActive === 'tab3'}>
+                <MDBCol size='12' className='d-flex  align-items-stretch'>
+                  <MDBCard className="p-2 mb-3  w-100">
+
+                    <MDBCardHeader>
+                      Orders
+                    </MDBCardHeader>
+                    <MDBCardBody className="w-100">
+                      <DataTable
+                        pagination="true"
+                        columns={ordercolumns}
+                        data={vendorOrders ? vendorOrders : []}
+
+                      />
+                    </MDBCardBody>
+                  </MDBCard>
+                </MDBCol>
+              </MDBTabsPane>
             </MDBTabsContent>
           </MDBCol>
 
         </MDBRow>
+
+        <MDBModal show={orderModal} setShow={toggleOrderShow} tabIndex='-1' >
+          <MDBModalDialog >
+            <MDBModalContent>
+              <MDBModalHeader>
+                <MDBModalTitle>Order details</MDBModalTitle>
+                <MDBBtn className='btn-close' color='none' onClick={toggleOrderShow}></MDBBtn>
+              </MDBModalHeader>
+              <MDBModalBody className="text-start">
+                <MDBRow>
+                  <MDBCol xs="12" lg='6' className='my-2' >
+                    <MDBInput type="text" label='Order Id' style={{ backgroundColor: "#FFFFFF" }}
+                      disabled value={orderData?.id?.toString()}
+                    /></MDBCol>
+                  {/* <MDBCol xs="12" lg='6' className='my-2'>
+                    <MDBInput type="text" label='Product Id' style={{ backgroundColor: "#FFFFFF" }}
+                      disabled value={orderData.id}
+                              /></MDBCol>*/}
+                  <MDBCol xs="12" lg='6' className='my-2'>
+                    <MDBInput type="text" label='Product Name' style={{ backgroundColor: "#FFFFFF" }}
+                      disabled value={orderData.title}
+                    /></MDBCol>
+                  <MDBCol xs="12" lg='6' className='my-2'>
+                    <MDBInput type="text" label='Status' style={{ backgroundColor: "#FFFFFF" }}
+                      disabled value={orderData.orderStatus}
+                    /></MDBCol>
+                  <MDBCol xs="12" lg='6' className='my-2'>
+                    <MDBInput type="text" label='Quantity' style={{ backgroundColor: "#FFFFFF" }}
+                      disabled value={orderData.quantity}
+                    /></MDBCol>
+                  <MDBCol xs="12" lg='6' className='my-2'>
+                    <MDBInput type="text" label='Price' style={{ backgroundColor: "#FFFFFF" }}
+                      disabled value={orderData.price}
+                    /></MDBCol>
+                  <MDBCol xs="12" lg='6' className='my-2'>
+                    <MDBInput type="text" label='Time' style={{ backgroundColor: "#FFFFFF" }}
+                      disabled value={orderData?.createdon?.toString()}
+                    /></MDBCol>
+                  <MDBCol xs="12" lg='6' className='my-2'>
+                    <MDBInput type="text" label='buyer' style={{ backgroundColor: "#FFFFFF" }}
+                      disabled value={orderData?.buyeruserId?.toString()}
+                    /></MDBCol>
+                  <MDBCol xs="12" className='my-2' >
+                    <lable>comment</lable>
+                    <textarea rows={5} className="form-control" disabled value={orderData?.comments} >
+
+                    </textarea>
+                  </MDBCol>
+                </MDBRow>
+              </MDBModalBody>
+
+              <MDBModalFooter>
+
+                {orderData?.orderStatusId == "1" ? (<div><MDBBtn color='danger' className='mx-2' onClick={() => {
+                  dispatch(PostOrderStatusAsync({
+                    token, data: {
+                      status: "3",
+                      orderId: orderData?.id
+                    }, callback: () => {
+                      toggleOrderShow({})
+                    }
+                  }))
+                }}>
+                  Reject
+                </MDBBtn>
+                  <MDBBtn color='success' onClick={() => {
+                    dispatch(PostOrderStatusAsync({
+                      token, data: {
+                        status: "2",
+                        orderId: orderData?.id
+                      }, callback: () => {
+                        toggleOrderShow({})
+                      }
+                    }))
+                  }}  >Accept</MDBBtn></div>) : ""}
+                <MDBBtn color='secondary' onClick={toggleOrderShow}>
+                  close
+                </MDBBtn>
+              </MDBModalFooter>
+            </MDBModalContent>
+          </MDBModalDialog>
+        </MDBModal>
+
       </MDBContainer>
 
 

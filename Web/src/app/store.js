@@ -10,6 +10,8 @@ import doonorProfileReducer from '../reducers/DonorProfileSlice';
 import AdReducer from '../reducers/AdSlice';
 import VendorReducer from '../reducers/VendorSlice';
 import BlogReducer from '../reducers/BlogSlice';
+import OrderReducer from '../reducers/OrderSlice';
+import MessageReducer from '../reducers/MessageSlice';
 
 const persistConfig = {
   key: 'root',
@@ -22,8 +24,11 @@ const reducers = combineReducers({
   authentication: authReducer,
   childProfile: childProfileReducer,
   donorProfile: doonorProfileReducer,
-  adServ:AdReducer,
-  blog:BlogReducer
+  adServ: AdReducer,
+  blog: BlogReducer,
+  vendor: VendorReducer,
+  order: OrderReducer,
+  message: MessageReducer
 });
 
 const _persistedReducer = persistReducer(persistConfig, reducers);

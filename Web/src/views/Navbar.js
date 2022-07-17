@@ -94,7 +94,7 @@ export function Navbar() {
                     <MDBDropdownLink href="/vendor">Explore vendors</MDBDropdownLink>
                   </MDBDropdownItem>
                   <MDBDropdownItem>
-                    <MDBDropdownLink href="/signup">Become a vendor</MDBDropdownLink>
+                    <MDBDropdownLink href="/products">Explore products</MDBDropdownLink>
                   </MDBDropdownItem>
 
                 </MDBDropdownMenu>

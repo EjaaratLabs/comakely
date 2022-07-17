@@ -125,12 +125,39 @@ module.exports = {
     "/user/vendorprofile": {
         controller: "PostVendorProfile",
         allowedMethod: ['POST']
-    },"/blog/list": {
+    }, "/blog/list": {
         controller: "GetBlog",
         allowedMethod: ['GET']
     },
     "/blog/create": {
         controller: "PostBlog",
+        allowedMethod: ['POST']
+    }, "/product/newproduct": {
+        controller: "PostVendorProduct",
+        allowedMethod: ['POST']
+    }, "/product/list": {
+        controller: "GetVendorProducts",
+        allowedMethod: ['GET']
+    }, "/product/details": {
+        controller: "GetProductDetails",
+        allowedMethod: ['GET']
+    }, "/order/new": {
+        controller: "PostNewOrder",
+        allowedMethod: ['POST']
+    }, "/order/vendor/list": {
+        controller: "GetVendorOrders",
+        allowedMethod: ['GET']
+    }, "/order/status/update": {
+        controller: "PostStatusUpdate",
+        allowedMethod: ['POST']
+    }, "/services/newservice": {
+        controller: "PostVendorServices",
+        allowedMethod: ['POST']
+    }, "/services/vendor/list": {
+        controller: "GetVendorServices",
+        allowedMethod: ['GET']
+    }, "/messagecenter/send": {
+        controller: "PostSendMessageToVendor",
         allowedMethod: ['POST']
     },
 }

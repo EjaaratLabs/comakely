@@ -16,7 +16,9 @@ class GetUserDetails{
         try {
 
             message.USER_INFO=await modle.getUserInfoByUserName(message.API_USER_ID);
+            console.log( message.API_USER_ID)
             message.USER_PRODUCTS=await modle.getUserProductsByUserName(message.API_USER_ID);
+            
             if( message.USER_INFO.usertype==1)
             {
                 message.VEDOR_PROFILE=await modle.getVendorProfileByUserName(message.API_USER_ID)

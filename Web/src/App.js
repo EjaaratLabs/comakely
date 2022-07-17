@@ -16,10 +16,13 @@ import { VendorAd } from './views/VendorAd';
 
 import { AdDetails } from './views/AdDetails';
 import { ProfileDetails } from './views/ProfileDetails';
-import { ProfileManagement } from './views/ProfileManagement';
 import { AlliedLanding } from './views/AlliedLanding';
 import { Blog } from './views/Blogs';
 import { NewProduct } from './views/NewProduct';
+import { VendorProductsList } from './views/VendorProducts';
+import { ProductDetails } from './views/ProductDetails';
+import { VendorProfileManagement } from './views/VendorProfileManagement';
+import { ProfileWrapper } from './views/ProfileWrapper';
 
 function App() {
 
@@ -35,13 +38,15 @@ function App() {
            <Route path="signup" element={<SignUp />} />
            <Route path="business" element={<BusinessLanding />} />
            <Route path="vendor" element={<VendorLanding />} />
+           <Route path="products" element={<VendorProductsList />} />
            <Route path="vendor/:vendorCategory" element={<VendorLanding />} />
            <Route path="allied-services" element={<AlliedLanding />} />
            <Route path="post-vendor-ad" element={<VendorAd />} />
            <Route path="post-business-ad" element={<BusinessAd />} />
            <Route path="details/:postId" element={<AdDetails />} />
+           <Route path="product-details/:productId" element={<ProductDetails />} />
            <Route path="profile/:vendorId" element={<ProfileDetails  />} />
-           <Route path="profile-management" element={<ProfileManagement  />} />
+           <Route path="profile-management" element={<ProfileWrapper  />} />
            <Route path="blog" element={<Blog />} />
            <Route path="add-product" element={<NewProduct />} />
         </Routes>

@@ -6,9 +6,9 @@ module.exports = {
   //   database: 'ejaassac_levis'
   // },
   "0": {
-    host: 'localhost',
+    host: '194.233.82.227',
     user: 'root',
-    password: '',
-    database: 'comakely',
+    password: 'ejaaratlabs',
+    database: 'alkhidmatcms',
   },
 }

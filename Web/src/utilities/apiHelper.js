@@ -6,7 +6,7 @@ const axios = require('axios').default;
 export default new class HelperApi {
 
 
-    baseUrL =  "https://staging.ejaarat.com/"
+    baseUrL =  "https://bqapi.ejaarat.com:3500/"
     async getApi(url, token, params) {
         
         var queryParams = ""

@@ -47,7 +47,9 @@ export function SignUp() {
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
   const [userType, setUserType] = useState('');
+  const [regType, setRegType] = useState('');
   const [phone, setPhone] = useState('');
+  const [email, setEmail] = useState('');
   let navigate = useNavigate()
   let location = useLocation()
   const [showNav, setShowNav] = useState(false);
@@ -59,6 +61,9 @@ export function SignUp() {
   }
   let onClick = (nr) => () => {
     setUserType(nr)
+  };
+  let onClick1 = (nr) => () => {
+    setRegType(nr)
   };
 
   return (
@@ -81,9 +86,13 @@ export function SignUp() {
                 success="right" value={name} onChange={(e) => {
                   setName(e.target.value)
                 }} />
-                   <MDBInput label="Phone" className="mb-5 mb-2" icon="envelope" group type="text" validate error="wrong"
+                   <MDBInput label="Phone" className=" " icon="envelope" group type="text" validate error="wrong"
                 success="right" value={phone} onChange={(e) => {
                   setPhone(e.target.value)
+                }} />
+                   <MDBInput label="Email" className="mb-5 mb-2" icon="envelope" group type="text" validate error="wrong"
+                success="right" value={email} onChange={(e) => {
+                  setEmail(e.target.value)
                 }} />
               <div className="mb-5">
                 <p>You want to register as :</p>
@@ -92,6 +101,13 @@ export function SignUp() {
                 <MDBRadio name='inlineRadio' id='inlineRadio1' value='2' label='Buyer' inline onClick={onClick(2)} checked={userType == "2" ? true : false} />
                 <MDBRadio name='inlineRadio' id='inlineRadio1' value='3' label='Allied Services' inline onClick={onClick(3)} checked={userType == "3" ? true : false} />
               </div>
+             {userType&&userType!='2'? <div className="mb-5">
+                <p>Select package :</p>
+
+                <MDBRadio name='inlineRadio1' value='1' label='Silver -Rs 3,000/month' inline onClick={onClick1(1)} checked={regType == "1" ? true : false} />
+                <MDBRadio name='inlineRadio1'  value='2' label='Gold -Rs 6,000/month' inline onClick={onClick1(2)} checked={regType == "2" ? true : false} />
+                <MDBRadio name='inlineRadio1'  value='3' label='Platinum -Rs 10,000/month' inline onClick={onClick1(3)} checked={regType == "3" ? true : false} />
+              </div>:""}
               {/*href="/home" */}
               <MDBBtn onClick={() => dispatch(registerAsync({
                 "userName": userName,
@@ -99,6 +115,7 @@ export function SignUp() {
                 "name": name,
                 "userType": userType,
                 "phone":phone,
+                "email":email,
                 "callback": () => {
 
                   setUserName("");

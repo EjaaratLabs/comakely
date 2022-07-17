@@ -37,36 +37,37 @@ import item2 from '../assets/connect.png'
 
 import item3 from '../assets/sahke.png'
 
-
-import place from '../assets/profile.png'
-
 import { getAds, GetAdsListAsync } from '../reducers/AdSlice';
 
 import { Navbar } from './Navbar';
 import { Footer } from './Footer';
-import { GetVendorListAsync, getVendors } from '../reducers/VendorSlice';
+import { GetVendorListAsync, getVendorProducts, GetVendorProductsListAsync, getVendors } from '../reducers/VendorSlice';
 
-export function VendorLanding() {
+const place ='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5wqYAFPRPxIErsu5eHISwZ0i0Ey4i7gAW9S3hxA3BYF6MP8J0qXCAxKBxZsZvLJENoi4&usqp=CAU'
+
+export function VendorProductsList() {
   let params = useParams();
   const token = useSelector(getToken);
-  const userData = useSelector(getUserData);
+
   const dispatch = useDispatch();
   useEffect(() => {
 
-    dispatch(GetVendorListAsync({ token}));
+    dispatch(GetVendorProductsListAsync({ token }));
   }, []);
-  const data = useSelector(getVendors);
+  const data = useSelector(getVendorProducts);
   let navigate = useNavigate()
   let location = useLocation()
-  const [showNav, setShowNav] = useState(false);
   var srcStr=location.search.split("=")[1]
+  const [showNav, setShowNav] = useState(false);
+
   const [search, setSearch] = useState(srcStr);
   var list = [];
-  if (data) {
-    var temp=data;
-    if(search)
-    {
-      temp=data.filter((x)=>(x.Name&&x.Name.toLowerCase().includes(search.toLowerCase())) )
+
+  if (data && Array.isArray(data)) {
+   
+    var temp = data;
+    if (search) {
+      temp = data.filter((x) => (x.title && x.title.toLowerCase().includes(search.toLowerCase())||(x.description && x.description.toLowerCase().includes(search.toLowerCase()))))
     }
     temp.forEach(val => {
       list.push(<MDBCol size='9' className='my-1'>
@@ -74,17 +75,19 @@ export function VendorLanding() {
           <MDBCardBody className='text-start'>
             <MDBRow>
               <MDBCol size='8' className='d-flex'>
-               <div>
-                 <img src={place} height="80px"/>
-               </div>
-               <div className='py-2'>
-<h5>{val.Name}</h5>
-<div>Karachi</div>
-               </div>
+                <div className='mr-5'>
+                  <img src={place} height="80px" />
+                </div>
+                <div className='py-2 px-5'>
+                  <h5>{val.title}</h5>
+                  <div>{val.category}</div>
+                  <br />
+                  <div>{val.description}</div>
+                </div>
               </MDBCol>
-              <MDBCol size='4' className='text-end'>
-             
-                <MDBBtn href={'/profile/'+val.UserName} style={{ backgroundColor: "#30B4BA" }} >View profile</MDBBtn></MDBCol>
+              <MDBCol size='4' className='text-end d-flex align-items-end flex-column' >
+               <div><b>Rs. {val.price}</b></div>
+                <MDBBtn className='mt-auto' href={'/product-details/' + val.id} style={{ backgroundColor: "#30B4BA" }} >View details</MDBBtn></MDBCol>
             </MDBRow>
 
 
@@ -94,7 +97,7 @@ export function VendorLanding() {
     })
   }
   if (!token) {
- 
+
     return <Navigate to={{ pathname: '/login', state: { from: location } }} />
     // setUserName("")
   }
@@ -104,19 +107,19 @@ export function VendorLanding() {
       <Navbar />
       <MDBContainer>
 
-        <h3 className='pt-5  '>Vendors available for {params&& params.vendorCategory?params?.vendorCategory:"services"}</h3>
+        <h3 className='pt-5  '>Products </h3>
         <MDBRow className='d-flex justify-content-center '>
-      
+
         </MDBRow>
         <MDBRow className='d-flex justify-content-start py-2'>
-        <MDBCol size='3'>
+          <MDBCol size='3'>
             <MDBCard>
 
               <MDBCardBody className='text-start'>
-              <MDBInput label="Search vendor" className=" mb-2" icon="envelope" group type="text" validate error="wrong"
-              success="right" value={search} onChange={(e) => {
-                setSearch(e.target.value)
-              }} />
+                <MDBInput label="Search vendor" className=" mb-2" icon="envelope" group type="text" validate error="wrong"
+                  success="right" value={search} onChange={(e) => {
+                    setSearch(e.target.value)
+                  }} />
                 <br />
                 <h5>Categories</h5>
                 <MDBCheckbox name='flexCheck' value='Leather' id='flexCheckDefault' label='Leather' />
@@ -133,7 +136,7 @@ export function VendorLanding() {
                   <option value="2">Lahore</option>
                   <option value="3">Islamabad</option>
                 </select>
-               
+
 
               </MDBCardBody>
             </MDBCard>

@@ -57,7 +57,7 @@ import StarRatings from 'react-star-ratings';
 import { Navbar } from './Navbar';
 import { Footer } from './Footer';
 import DataTable from 'react-data-table-component';
-import { PostVendorProfileAsync } from '../reducers/VendorSlice';
+import { PostVendorProductAsync, PostVendorProfileAsync } from '../reducers/VendorSlice';
 import { GetBlogListAsync, getBlogs } from '../reducers/BlogSlice';
 
 export function NewProduct() {
@@ -72,7 +72,7 @@ export function NewProduct() {
   const [productDesc, setProductDesc] = useState('');
   const [productPrice, setProductPrice] = useState('');
   const [productCategory, setProductCategory] = useState('');
-  const [productIsPrimary, setProductIsPrimary] = useState('');
+  const [productIsPrimary, setProductIsPrimary] = useState('0');
 
   useEffect(() => {
 
@@ -116,33 +116,39 @@ export function NewProduct() {
               <MDBCardBody className="w-100">
                 <form>
                   <MDBRow>
-                    <MDBCol size='12'>
-                      <MDBInput className="mt-3" label="Title" type="text" style={{ backgroundColor: "#FFFFFF" }}
+                    <MDBCol size='12' className="mt-3">
+                      <label >Project name</label>
+                      <MDBInput type="text" style={{ backgroundColor: "#FFFFFF" }}
                         onChange={(e) => {
                           setProductTitle(e.target.value)
                         }}
                       />
                     </MDBCol>
-                    <MDBCol size='12'>
+                    <MDBCol size='12' className="mt-3" >
                       <div className="form-group">
-                        <label htmlFor="exampleFormControlTextarea1">Description</label>
+                        <label >Description</label>
                         <textarea
                           className="form-control"
                           id="exampleFormControlTextarea1"
                           rows="5"
+                          onChange={(e) => {
+                            setProductDesc(e.target.value)
+                          }}
                         />
                       </div>
                     </MDBCol>
-                    <MDBCol size='6'>
-                      <MDBInput className="mt-3" label="Price" type="text" style={{ backgroundColor: "#FFFFFF" }}
+                    <MDBCol size='6' className="mt-3" >
+                      <label >Price</label>
+                      <MDBInput type="text" style={{ backgroundColor: "#FFFFFF" }}
                         onChange={(e) => {
                           setProductPrice(e.target.value)
                         }}
                       />
                     </MDBCol>
 
-                    <MDBCol size='6'>
-                      <select className="form-select mt-3" onChange={(e) => {
+                    <MDBCol size='6' className="mt-3">
+                      <label >Category</label>
+                      <select className="form-select " onChange={(e) => {
                         setProductCategory(e.target.value)
                       }} >
                         <option value={"-1"}>---Select Category---</option>
@@ -155,17 +161,32 @@ export function NewProduct() {
                       </select>
                     </MDBCol>
                     <MDBCol size='6' className='text-start mt-5'>
-                      <MDBCheckbox name='flexCheck' value='' className='text-start ' label='Primary Product'
+                      <MDBCheckbox name='flexCheck' checked={productIsPrimary == "1"} className='text-start ' label='Primary Product'
                         onChange={(e) => {
-                          setProductIsPrimary(e.target.value)
+                          setProductIsPrimary(e.target.checked ? "1" : "0")
                         }}
                       />
                     </MDBCol>
-                    <MDBCol size='6' className='text-start mt-1'>
+                    <MDBCol size='6' className='text-start mt-3'>
                       <MDBFile label='Picture' id='customFile' />
                     </MDBCol>
                     <MDBCol className='d-flex justify-content-end mt-5' size='12'>
-                        <MDBBtn color='success' >Save</MDBBtn></MDBCol>
+                      <MDBBtn color='success' href='#' onClick={() => {
+                       
+                        dispatch(PostVendorProductAsync({
+                          token,
+                          data: {
+                            "name": productTitle,
+                            "description": productDesc,
+                            "category": productCategory,
+                            "price": productPrice,
+                            "isPrimary": productIsPrimary
+                          },
+                          callback:()=>{
+                            navigate("/profile-management");
+                          }
+                        }))
+                      }} >Save</MDBBtn></MDBCol>
                   </MDBRow>
                 </form>
               </MDBCardBody>

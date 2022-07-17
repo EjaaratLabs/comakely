@@ -79,22 +79,22 @@ export function Landing() {
   console.log(userData);
   const dispatch = useDispatch();
   const [userName, setUserName] = useState('');
-  const [password, setPassword] = useState('');
+  const [searchStr, setSearch] = useState('');
   let navigate = useNavigate()
   let location = useLocation()
   const [showNav, setShowNav] = useState(false);
   const userProfileData = useSelector(getUserProfileData);
-console.log(userProfileData,"prof")
+  console.log(userProfileData, "prof")
 
   return (
     <div style={{ backgroundColor: "#FFFFFF" }}>
 
       <Navbar />
-      {token ?((!userProfileData.vendorProfile || !userProfileData.products) ?
+      {token ? ((!userProfileData.vendorProfile || !userProfileData.products) ?
         <div className="alert alert-success alert-dismissible fade show m-3" role="alert">
           <strong>Congratulation!</strong> Your account has been approved complete your profile. <Link to="profile-management" style={{ color: "green" }}>Click here !</Link>
 
-        </div>:""):""}
+        </div> : "") : ""}
       <MDBCarousel fade>
         <MDBCarouselInner>
           <MDBCarouselItem className='active '>
@@ -105,12 +105,17 @@ console.log(userProfileData,"prof")
 
               <MDBRow className='d-flex justify-content-center'>
                 <MDBCol size='8'>
-                  <MDBInput className='my-3' label='Search...' type='text' labelStyle={{ textAlign: "center" }}
-                    contrast />
+                  <MDBInput className='my-3' label='Search...' value={searchStr} type='text' labelStyle={{ textAlign: "center" }}
+                    contrast
+                    onChange={(val) => {
+                   //   alert(val)
+                      setSearch(val.target.value)
+                    }}
+                  />
                 </MDBCol>
               </MDBRow>
-              <MDBBtn className='mx-2' style={{ backgroundColor: '#F7D402', color: "black" }} href="/vendor" >Find a vendor</MDBBtn>
-              <MDBBtn className='mx-2' href='/business' style={{ backgroundColor: "#30B4BA" }} >Find a project</MDBBtn>
+              <MDBBtn className='mx-2' style={{ backgroundColor: '#F7D402', color: "black" }} href={'/vendor?q=' + searchStr} >Find vendor</MDBBtn>
+              <MDBBtn className='mx-2' href={'/products?q=' + searchStr} style={{ backgroundColor: "#30B4BA" }} >Find products</MDBBtn>
 
             </MDBCarouselCaption>
           </MDBCarouselItem>

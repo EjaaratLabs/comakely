@@ -98,7 +98,7 @@ export const AuthSlice = createSlice({
       .addCase(registerAsync.fulfilled, (state, action) => {
 
         state.status = 'idle';
-        toast.success("User registered successfully !")
+        toast.success("Free tiral has been activated, User registeration request sent successfully !")
       });;
   },
 });
